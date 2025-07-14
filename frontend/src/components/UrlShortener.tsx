@@ -1,3 +1,5 @@
+// Import with fallback types for TypeScript
+import confetti from 'canvas-confetti';
 import { useState } from 'react';
 import './UrlShortener.css';
 
@@ -46,6 +48,13 @@ export default function UrlShortener({ onUrlShortened, isLoading, setIsLoading, 
         setRecentlyShortened(data.shortUrl);
         onUrlShortened();
         
+        confetti({
+          particleCount: 120,
+          spread: 90,
+          origin: { y: 0.6 },
+          scalar: 1.1,
+          zIndex: 9999,
+        });
         setTimeout(() => {
           setRecentlyShortened(null);
         }, 5000);

@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Analytics from "./components/Analytics";
 import UrlShortener from "./components/UrlShortener";
 import UrlList from "./components/UrlList";
-
+// import CHOTUMascot from "./components/CHOTUMascot";
 interface Url {
   _id: string;
   originalUrl: string;
@@ -122,6 +122,7 @@ function App() {
   return (
     <div className="app">
       <Navbar user={user} onLogout={handleLogout} />
+      {/* <CHOTUMascot />  */}
 
       <div className="main-content">
         <div className="container">

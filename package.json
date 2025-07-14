@@ -29,5 +29,15 @@
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "canvas-confetti": "^1.9.3",
+    "framer-motion": "^12.23.3",
+    "lottie-react": "^2.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-parallax-tilt": "^1.7.300",
+    "react-tsparticles": "^2.12.2"
   }
-} 
+}
