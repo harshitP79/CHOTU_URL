@@ -6,6 +6,7 @@ import Analytics from "./components/Analytics";
 import UrlShortener from "./components/UrlShortener";
 import UrlList from "./components/UrlList";
 // import CHOTUMascot from "./components/CHOTUMascot";
+
 interface Url {
   _id: string;
   originalUrl: string;
@@ -59,8 +60,26 @@ function App() {
           Authorization: `Bearer ${token}`,
         },
       });
+
+      if (response.status === 401) {
+        console.warn("Unauthorized - logging out");
+        handleLogout();
+        return;
+      }
+
+      if (!response.ok) {
+        console.error(`Error fetching URLs: ${response.status}`);
+        return;
+      }
+
       const data = await response.json();
-      setUrls(data);
+
+      if (Array.isArray(data)) {
+        setUrls(data);
+      } else {
+        console.error("Unexpected data format:", data);
+        setUrls([]);
+      }
     } catch (error) {
       console.error("Error fetching URLs:", error);
     }
